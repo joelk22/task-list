@@ -8,6 +8,8 @@ function ToDoList() {
     const [newTask, setNewTask] = useState("");
 
     function handleInputChange(event){
+        // makes it so that the enter a task box can take input
+        setNewTask(event.target.value);
     }
 
     function addTask(){
