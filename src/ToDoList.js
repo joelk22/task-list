@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 function ToDoList() {
 
-    const [tasks, setTask] = useState([]);
+    const [tasks, setTasks] = useState(["Code mini project"]);
     const [newTask, setNewTask] = useState("");
 
     function handleInputChange(event){
@@ -11,6 +11,11 @@ function ToDoList() {
 
     function addTask(){
 
+        if(newTask.trim() !== "") {
+            setTasks(t => [...t, newTask]);
+            setNewTask("");
+        }
+        
     }
 
     function deleteTask(index){
@@ -54,12 +59,12 @@ function ToDoList() {
                             Delete
                         </button>
                         <button
-                            className="moveup-button"
+                            className="move-button"
                             onClick={() => moveTaskUp(index)}>
                             Up
                         </button>
                         <button
-                            className="movedown-button"
+                            className="move-button"
                             onClick={() => moveTaskDown(index)}>
                             Down
                         </button>
